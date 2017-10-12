@@ -20,6 +20,15 @@ public class Listing {
     private Date endDate;
     private int rent;
 
+    public Listing(User owner, String name, String address, String description, Date startDate, Date endDate, int rent) {
+        this.owner = owner;
+        this.name = name;
+        this.address = address;
+        this.description = description;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.rent = rent;
+    }
 
     public User getOwner() {
         return owner;

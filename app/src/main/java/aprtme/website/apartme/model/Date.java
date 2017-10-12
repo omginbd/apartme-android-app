@@ -7,7 +7,7 @@ package aprtme.website.apartme.model;
 public class Date {
 
 
-    private enum MONTH{JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC}
+    public enum MONTH{JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC}
     private MONTH month;
     private int day;
     private int year;
