@@ -5,7 +5,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.Random;
+
+import aprtme.website.apartme.model.Listing;
 
 /**
  * Created by michael on 10/12/17.
@@ -15,12 +21,85 @@ public class BrowseFragment extends Fragment {
 
     public static String NAV_ITEM = "nav_item";
 
+    private Listing curListing;
+    private BrowseController controller;
+
+    public TextView name;
+    public TextView address;
+    public ImageView preview;
+    public TextView distance;
+    public TextView price;
+    public Button like;
+    public Button pass;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        String navItem = getArguments().getString(NAV_ITEM);
-
         View v = inflater.inflate(R.layout.browse_view, container, false);
-        ((TextView) v.findViewById(R.id.test)).setText(navItem);
+
+        name = (TextView) v.findViewById(R.id.text_view_name);
+        address = (TextView) v.findViewById(R.id.text_view_address);
+        preview = (ImageView) v.findViewById(R.id.linear_layout_image_preview);
+        distance = (TextView) v.findViewById(R.id.text_view_distance);
+        price = (TextView) v.findViewById(R.id.text_view_price);
+        like = (Button) v.findViewById(R.id.like_button);
+        pass = (Button) v.findViewById(R.id.pass_button);
+
+        like.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nextListing(true);
+            }
+        });
+
+        pass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nextListing(false);
+            }
+        });
+
+        preview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewListing();
+            }
+        });
+
+        controller = new BrowseController(this);
+        curListing = controller.getCurListing();
+        invalidateListing();
+
         return v;
+
     }
+
+    public void setController(BrowseController c) {
+        this.controller = c;
+    }
+
+    private void invalidateListing() {
+        Random r = new Random();
+        name.setText(curListing.getName());
+        address.setText(curListing.getAddress());
+        distance.setText(Float.toString(r.nextFloat()));
+        price.setText("$" + curListing.getRent());
+    }
+
+    public void setListing(Listing newListing) {
+        curListing = newListing;
+        invalidateListing();
+    }
+
+    public void nextListing(boolean like) {
+        if (like) {
+            controller.likeListing(curListing);
+        } else {
+            controller.passListing();
+        }
+    }
+
+    private void viewListing() {
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, new ListingViewFragment()).addToBackStack("your mom").commit();
+    }
+
 }

@@ -4,7 +4,7 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="?attr/colorPrimaryDark"
+              android:background="#efefef"
     >
 
     <LinearLayout
@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:layout_weight="3"
         android:orientation="horizontal"
-        android:background="?attr/colorPrimaryDark">0
+        >
 
         <ImageView
             android:id="@+id/imageView11"
@@ -20,7 +20,6 @@
             android:layout_height="match_parent"
             android:layout_margin="3dp"
             android:layout_weight="1"
-            android:background="?attr/colorPrimary"
             app:srcCompat="@drawable/ic_action_cancel"/>
 
         <ImageView
@@ -29,7 +28,6 @@
             android:layout_height="match_parent"
             android:layout_margin="3dp"
             android:layout_weight="1"
-            android:background="?attr/colorPrimary"
             app:srcCompat="@drawable/ic_action_cancel"/>
 
         <ImageView
@@ -38,7 +36,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="3dp"
-            android:background="?attr/colorPrimary"
             app:srcCompat="@drawable/ic_action_cancel"/>
 
 
@@ -49,7 +46,7 @@
         android:layout_height="match_parent"
         android:layout_weight="3"
         android:orientation="horizontal"
-        android:background="?attr/colorPrimaryDark">
+        >
 
         <ImageView
             android:id="@+id/imageView4"
@@ -57,7 +54,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="3dp"
-            android:background="?attr/colorPrimary"
             app:srcCompat="@drawable/ic_action_cancel"/>
 
         <Button
@@ -65,7 +61,7 @@
             android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="?attr/colorAccent"
+            android:background="?attr/colorPrimary"
             android:clickable="true"
             android:layout_margin="3dp"
             android:text="UPLOAD IMAGES"/>
@@ -77,7 +73,7 @@
         android:layout_height="match_parent"
         android:layout_weight="3"
         android:orientation="horizontal"
-        android:background="?attr/colorPrimaryDark">
+        >
 
         <EditText
             android:id="@+id/temp1"
@@ -85,7 +81,6 @@
             android:layout_height="match_parent"
             android:layout_margin="3dp"
             android:layout_weight="1"
-            android:background="?attr/colorPrimary"
             android:hint="StartDate Placeholder"/>
 
         <EditText
@@ -94,7 +89,6 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:layout_margin="3dp"
-            android:background="?attr/colorPrimary"
             android:hint="EndDate Placeholder"/>
 
 
@@ -103,10 +97,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="2"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="?attr/colorPrimaryDark">
+        >
 
         <EditText
             android:id="@+id/apartmentNameET"
@@ -115,7 +108,7 @@
             android:layout_weight="3"
             android:layout_margin="3dp"
             android:hint="Name of Housing Complex"
-            android:background="?attr/colorPrimary"/>
+            />
 
         <EditText
             android:id="@+id/addressET"
@@ -124,7 +117,7 @@
             android:layout_height="match_parent"
             android:layout_weight="3"
             android:hint="Address"
-            android:background="?attr/colorPrimary"/>
+            />
 
         <EditText
             android:id="@+id/rentCostET"
@@ -134,7 +127,7 @@
             android:layout_weight="3"
             android:hint="Monthly Cost"
             android:inputType="number"
-            android:background="?attr/colorPrimary"/>
+            />
 
         <EditText
             android:inputType="textMultiLine"
@@ -145,7 +138,7 @@
             android:layout_margin="3dp"
             android:layout_weight="2"
             android:hint="Description"
-            android:background="?attr/colorPrimary"/>
+            />
 
 
     </LinearLayout>
@@ -155,7 +148,7 @@
         android:layout_weight="3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?attr/colorAccent"
+        android:background="?attr/colorPrimary"
         android:clickable="true"
         android:layout_margin="3dp"
         android:text="SUBMIT"/>

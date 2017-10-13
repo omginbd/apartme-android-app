@@ -1,10 +1,12 @@
 package aprtme.website.apartme.model;
 
+import java.io.Serializable;
+
 /**
  * Created by patri_000 on 10/12/2017.
  */
 
-public class User {
+public class User implements Serializable {
 
 
     private String username;

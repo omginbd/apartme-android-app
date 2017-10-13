@@ -2,4 +2,10 @@
     <string name="app_name">ApartMe</string>
     <string name="refresh">Refresh</string>
     <string name="stop">Stop</string>
+    <string name="description">Description</string>
+    <string name="placeholderAddress">48 W. 880 North</string>
+    <string name="placeholderName">Oak Pines</string>
+    <string name="placeholderDescription">Wow this apartment is amazing</string>
+    <string name="seller">Seller</string>
+    <string name="placeholderSeller">Ricky Bobby</string>
 </resources>

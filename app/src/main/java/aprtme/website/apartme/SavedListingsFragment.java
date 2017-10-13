@@ -17,10 +17,6 @@ public class SavedListingsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        String navItem = getArguments().getString(NAV_ITEM);
-
-        View v = inflater.inflate(R.layout.browse_view, container, false);
-        ((TextView) v.findViewById(R.id.test)).setText(navItem);
-        return v;
+        return inflater.inflate(R.layout.browse_view, container, false);
     }
 }

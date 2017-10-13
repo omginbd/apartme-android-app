@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
         mDrawerLayout = (DrawerLayout) findViewById(R.id.navigation_drawer);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
 
-
         Toolbar appToolbar = (Toolbar) findViewById(R.id.app_toolbar);
         setSupportActionBar(appToolbar);
 
@@ -60,6 +59,11 @@ public class MainActivity extends AppCompatActivity {
         mDrawerLayout.addDrawerListener(mDrawerToggle);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.main_frame, new BrowseFragment())
+                .commit();
 
     }
 
@@ -91,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
             selectItem(position);
         }
 
-        private void selectItem(int position) {
+        public void selectItem(int position) {
             Fragment fragment;
             switch (mNavItems[position]) {
                 case "browse":

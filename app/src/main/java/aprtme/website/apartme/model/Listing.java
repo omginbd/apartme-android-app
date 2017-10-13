@@ -2,11 +2,13 @@ package aprtme.website.apartme.model;
 
 import android.graphics.Bitmap;
 
+import java.io.Serializable;
+
 /**
  * Created by patri_000 on 10/12/2017.
  */
 
-public class Listing {
+public class Listing implements Serializable {
 
     private Bitmap image1 = null;
     private Bitmap image2 = null;
