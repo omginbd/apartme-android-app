@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="addressET" type="id">addressET</item>
+    <item name="rentCostET" type="id">rentCostET</item>
+    <item name="descriptionET" type="id">descriptionET</item>
+</resources>

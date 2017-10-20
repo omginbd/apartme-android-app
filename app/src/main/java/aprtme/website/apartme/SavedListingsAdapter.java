@@ -6,6 +6,8 @@ import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,14 +26,14 @@ import static aprtme.website.apartme.model.ListingStore.savedListings;
  */
 
 
-public class MyAdapter extends BaseAdapter {
+public class SavedListingsAdapter extends BaseAdapter {
 
 
     FragmentActivity mActivity;
     Context ctx;
     LayoutInflater inflater;
 
-    MyAdapter(FragmentActivity activity, Context ctx) {
+    SavedListingsAdapter(FragmentActivity activity, Context ctx) {
         this.ctx = ctx;
         mActivity = activity;
         inflater = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -91,6 +93,11 @@ public class MyAdapter extends BaseAdapter {
         Bundle args = new Bundle();
         args.putSerializable("listing", listing);
         fragment.setArguments(args);
-        mActivity.getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, fragment).addToBackStack("main view").commit();
+        mActivity.getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.main_frame, fragment)
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .addToBackStack("main view")
+                .commit();
     }
 }

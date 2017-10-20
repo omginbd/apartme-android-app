@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -23,6 +24,7 @@ public class ListingViewFragment extends Fragment {
 
     TextView name;
     TextView address;
+    ImageView closeButton;
     ImageView image1;
     ImageView image2;
     ImageView image3;
@@ -40,6 +42,7 @@ public class ListingViewFragment extends Fragment {
         name = (TextView) v.findViewById(R.id.text_view_name);
         address = (TextView) v.findViewById(R.id.text_view_address);
         description = (TextView) v.findViewById(R.id.text_view_description);
+        closeButton = (ImageView) v.findViewById(R.id.image_view_close_button);
         image1 = (ImageView) v.findViewById(R.id.image_view_image_1);
         image2 = (ImageView) v.findViewById(R.id.image_view_image_2);
         image3 = (ImageView) v.findViewById(R.id.image_view_image_3);
@@ -48,7 +51,7 @@ public class ListingViewFragment extends Fragment {
         endDate = (TextView) v.findViewById(R.id.text_view_end_date);
         seller = (TextView) v.findViewById(R.id.text_view_seller);
 
-        name.setOnClickListener(new View.OnClickListener() {
+        closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getActivity().getSupportFragmentManager().popBackStackImmediate();

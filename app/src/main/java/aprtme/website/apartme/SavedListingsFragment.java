@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.TextView;
 
 /**
  * Created by michael on 10/12/17.
@@ -23,7 +22,7 @@ public class SavedListingsFragment extends Fragment {
         View v = inflater.inflate(R.layout.saved_listings_fragment, container, false);
 
         FragmentActivity frag = getActivity();
-        MyAdapter adapter = new MyAdapter(frag, v.getContext());
+        SavedListingsAdapter adapter = new SavedListingsAdapter(frag, v.getContext());
         ListView listView = (ListView) v.findViewById(R.id.savedListings);
 
         listView.setAdapter(adapter);

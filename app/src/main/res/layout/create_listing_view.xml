@@ -131,11 +131,9 @@
         android:orientation="vertical"
         android:background="@color/colorPrimaryLight">
 
-
-
-
         <EditText
             android:id="@+id/apartmentNameET"
+            android:nextFocusDown="@id/addressET"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textColorHint="#AC9D92"
@@ -145,7 +143,8 @@
             android:background="#FCFCFB"/>
 
         <EditText
-            android:id="@+id/addressET"
+            android:id="@id/addressET"
+            android:nextFocusDown="@id/rentCostET"
             android:textColorHint="#AC9D92"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -155,7 +154,8 @@
             android:background="#FCFCFB"/>
 
         <EditText
-            android:id="@+id/rentCostET"
+            android:id="@id/rentCostET"
+            android:nextFocusDown="@id/descriptionET"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="3"
@@ -166,7 +166,7 @@
             android:background="#FCFCFB"/>
 
         <EditText
-            android:id="@+id/descriptionET"
+            android:id="@id/descriptionET"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="2"

@@ -11,13 +11,26 @@
         android:orientation="vertical"
         android:padding="8dp">
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:weightSum="5"
+            android:background="#efefef"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                app:srcCompat="@drawable/ic_action_cancel"
+                android:id="@+id/image_view_close_button"
+                android:layout_width="32dp"
+                android:layout_height="32dp" />
+
             <LinearLayout
                 android:id="@+id/linear_layout_card_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#efefef"
                 android:gravity="center_vertical|center_horizontal"
                 android:orientation="vertical">
+
 
                 <TextView
                     android:id="@+id/text_view_name"
@@ -36,6 +49,8 @@
                     android:textSize="12sp" />
             </LinearLayout>
 
+        </LinearLayout>
+
         <!--<ListView-->
             <!--android:id="@+id/list_view_images"-->
             <!--android:orientation="horizontal"-->
@@ -44,6 +59,7 @@
         <!--</ListView>-->
 
         <HorizontalScrollView
+            android:id="@+id/scroll_view_gallery"
             android:layout_width="match_parent"
             android:layout_height="250dp">
             <LinearLayout

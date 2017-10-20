@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -92,7 +93,6 @@ public class CreateListingFragment extends Fragment {
             }
         });
 
-
         endDateDisplay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -102,12 +102,6 @@ public class CreateListingFragment extends Fragment {
 
             }
         });
-
-
-
-
-
-
 
         imageUploadButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,8 +119,6 @@ public class CreateListingFragment extends Fragment {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 String name = apartmentName.getText().toString();
                 String rent = rentCost.getText().toString();
                 String add = address.getText().toString();
@@ -135,12 +127,10 @@ public class CreateListingFragment extends Fragment {
                 if(!(name.equals("") || rent.equals("") || add.equals("") || descrip.equals("")))
                 {
                     User owner = new User("DirtyRicky", "555-555-5555");
-                    Date start = new Date(11, 18, 2017);
-                    Date end = new Date(4, 18, 2018);
 
                     int rentInt = Integer.parseInt(rent);
 
-                    Listing listing = new Listing(owner, name, add, descrip, start, end, rentInt);
+                    Listing listing = new Listing(owner, name, add, descrip, startDate, endDate, rentInt);
                     listing.setImage1(image1);
                     listing.setImage2(image2);
                     listing.setImage3(image3);
@@ -149,6 +139,11 @@ public class CreateListingFragment extends Fragment {
                     ListingStore.getListings().add(listing);
 
                     Toast.makeText(getActivity(), "Listing Created", Toast.LENGTH_SHORT).show();
+                    getActivity().getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.main_frame, new BrowseFragment())
+                            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                            .commit();
 
                 }
                 else Toast.makeText(getActivity(), "Must fill in all fields", Toast.LENGTH_SHORT).show();

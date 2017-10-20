@@ -2,16 +2,13 @@ package aprtme.website.apartme;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
-import java.util.Random;
 
 import aprtme.website.apartme.model.Listing;
 
@@ -105,7 +102,11 @@ public class BrowseFragment extends Fragment {
         Bundle args = new Bundle();
         args.putSerializable("listing", curListing);
         fragment.setArguments(args);
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, fragment).addToBackStack("main view").commit();
+        getActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.main_frame, fragment)
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                .addToBackStack("main view").commit();
     }
 
 }
