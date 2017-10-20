@@ -33,6 +33,11 @@ public class Listing implements Serializable {
         this.rent = rent;
     }
 
+    public String startToEndToString()
+    {
+        return startDate.toStringNoYear() + " - " + endDate.toStringNoYear();
+    }
+
     public User getOwner() {
         return owner;
     }

@@ -8,7 +8,20 @@ import java.util.List;
  */
 
 public class ListingStore {
+
     private static ArrayList<Listing> listings;
+    public static ArrayList<Listing> savedListings = new ArrayList<>();
+
+
+
+
+    public static void saveListing(Listing listing)
+    {
+        savedListings.add(listing);
+    }
+
+
+
     public static List<Listing> getListings() {
         if (listings == null) {
             fillListings();
