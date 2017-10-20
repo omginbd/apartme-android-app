@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.Random;
 
 import aprtme.website.apartme.model.Listing;
@@ -27,7 +29,7 @@ public class BrowseFragment extends Fragment {
     public TextView name;
     public TextView address;
     public ImageView preview;
-    public TextView distance;
+    public TextView moveInDate;
     public TextView price;
     public Button like;
     public Button pass;
@@ -39,7 +41,7 @@ public class BrowseFragment extends Fragment {
         name = (TextView) v.findViewById(R.id.text_view_name);
         address = (TextView) v.findViewById(R.id.text_view_address);
         preview = (ImageView) v.findViewById(R.id.linear_layout_image_preview);
-        distance = (TextView) v.findViewById(R.id.text_view_distance);
+        moveInDate = (TextView) v.findViewById(R.id.text_view_start_date);
         price = (TextView) v.findViewById(R.id.text_view_price);
         like = (Button) v.findViewById(R.id.like_button);
         pass = (Button) v.findViewById(R.id.pass_button);
@@ -65,7 +67,7 @@ public class BrowseFragment extends Fragment {
             }
         });
 
-        controller = new BrowseController(this);
+        controller = BrowseController.getInstance(this);
         curListing = controller.getCurListing();
         invalidateListing();
 
@@ -78,10 +80,10 @@ public class BrowseFragment extends Fragment {
     }
 
     private void invalidateListing() {
-        Random r = new Random();
         name.setText(curListing.getName());
         address.setText(curListing.getAddress());
-        distance.setText(Float.toString(r.nextFloat()));
+        moveInDate.setText(curListing.getStartDate().toString());
+        preview.setImageBitmap(curListing.getImage1());
         price.setText("$" + curListing.getRent());
     }
 
@@ -99,7 +101,11 @@ public class BrowseFragment extends Fragment {
     }
 
     private void viewListing() {
-        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, new ListingViewFragment()).addToBackStack("your mom").commit();
+        Fragment fragment = new ListingViewFragment();
+        Bundle args = new Bundle();
+        args.putSerializable("listing", curListing);
+        fragment.setArguments(args);
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.main_frame, fragment).addToBackStack("main view").commit();
     }
 
 }

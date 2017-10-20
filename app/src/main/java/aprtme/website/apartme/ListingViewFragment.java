@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,6 +20,8 @@ public class ListingViewFragment extends Fragment {
     TextView name;
     TextView address;
     ImageView preview;
+    TextView startDate;
+    TextView endDate;
     TextView description;
     TextView seller;
 
@@ -31,8 +32,10 @@ public class ListingViewFragment extends Fragment {
 
         name = (TextView) v.findViewById(R.id.text_view_name);
         address = (TextView) v.findViewById(R.id.text_view_address);
-        preview = (ImageView) v.findViewById(R.id.linear_layout_image_preview);
+        preview = (ImageView) v.findViewById(R.id.image_view_image_preview);
         description = (TextView) v.findViewById(R.id.text_view_description);
+        startDate = (TextView) v.findViewById(R.id.text_view_start_date);
+        endDate = (TextView) v.findViewById(R.id.text_view_end_date);
         seller = (TextView) v.findViewById(R.id.text_view_seller);
 
         preview.setOnClickListener(new View.OnClickListener() {
@@ -42,6 +45,16 @@ public class ListingViewFragment extends Fragment {
             }
         });
 
+        Listing listing = (Listing) getArguments().getSerializable("listing");
+
+        name.setText(listing.getName());
+        address.setText(listing.getAddress());
+        description.setText(listing.getDescription());
+        startDate.setText(listing.getStartDate().toString());
+        endDate.setText(listing.getEndDate().toString());
+        seller.setText(listing.getOwner().getUsername());
+
         return v;
     }
+
 }

@@ -8,4 +8,7 @@
     <string name="placeholderDescription">Wow this apartment is amazing</string>
     <string name="seller">Seller</string>
     <string name="placeholderSeller">Ricky Bobby</string>
+    <string name="startdatePlaceholder">Aug 16 2016</string>
+    <string name="enddatePlaceholder">Aug 16 2017</string>
+    <string name="to">to</string>
 </resources>

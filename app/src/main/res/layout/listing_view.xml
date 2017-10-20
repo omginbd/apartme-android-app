@@ -36,11 +36,79 @@
                 android:textSize="12sp" />
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/linear_layout_image_preview"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="250dp">
+            <ImageView
+                android:id="@+id/image_view_image_1"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                app:srcCompat="@android:color/darker_gray" />
+            <ImageView
+                android:id="@+id/image_view_image_2"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                app:srcCompat="@android:color/darker_gray" />
+            <ImageView
+                android:id="@+id/image_view_image_3"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                app:srcCompat="@android:color/darker_gray" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="250dp"
-            app:srcCompat="@android:color/darker_gray" />
+            android:layout_height="24dp"
+            android:orientation="horizontal"
+            android:paddingLeft="24dp"
+            android:weightSum="5">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1.94"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text_view_start_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/startdatePlaceholder"
+                    android:textColor="@color/colorPrimaryDark" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/to" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1.77"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text_view_end_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/enddatePlaceholder"
+                    android:textColor="@color/colorPrimaryDark" />
+            </LinearLayout>
+
+        </LinearLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

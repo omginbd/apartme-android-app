@@ -12,10 +12,25 @@ import aprtme.website.apartme.model.ListingStore;
  */
 
 public class BrowseController {
+    private static BrowseController _instance;
     private BrowseFragment ctx;
     private int curListingIndex;
 
-    public BrowseController(BrowseFragment ctx) {
+    public static BrowseController getInstance(BrowseFragment ctx) {
+        if (_instance == null) {
+            _instance = new BrowseController(ctx);
+            return _instance;
+        } else {
+            _instance.setCtx(ctx);
+            return _instance;
+        }
+    }
+
+    public void setCtx(BrowseFragment ctx) {
+        this.ctx = ctx;
+    }
+
+    private BrowseController(BrowseFragment ctx) {
         this.ctx = ctx;
         this.curListingIndex = 0;
     }
