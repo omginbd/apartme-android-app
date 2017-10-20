@@ -22,8 +22,8 @@ public class ListingStore {
         String[] names = new String[] {"Pine Oaks", "Oakwood Pines", "Ridgewood Oaks", "Oakwood Ridge"};
         String[] addresses = new String[] {"12345 Candycane Lane", "700 North 500 West", "700 East 800 North", "500 East 400 North"};
         String[] descriptions = new String[] {"This apartment is great! The ward is amazing, and so is the management.", "Very motivated seller. Good apartment, good location.", "Very newly renovated. Expensive but worth it!", "I can't think of another dumb description so this is it."};
-        Date[] startDates = new Date[] {new Date(Date.MONTH.JAN, 4, 2018), new Date(Date.MONTH.NOV, 1, 2017), new Date(Date.MONTH.DEC, 1, 2017), new Date(Date.MONTH.MAY, 1, 2018)};
-        Date[] endDates = new Date[] {new Date(Date.MONTH.AUG, 25, 2018), new Date(Date.MONTH.AUG, 25, 2018), new Date(Date.MONTH.AUG, 25, 2018), new Date(Date.MONTH.AUG, 25, 2018)};
+        Date[] startDates = new Date[] {new Date(1, 4, 2018), new Date(11, 1, 2017), new Date(10, 1, 2017), new Date(5, 1, 2018)};
+        Date[] endDates = new Date[] {new Date(8, 25, 2018), new Date(8, 25, 2018), new Date(8, 25, 2018), new Date(8, 25, 2018)};
         int[] rents = new int[] {355, 200, 435, 1000};
 
         listings = new ArrayList<>(4);

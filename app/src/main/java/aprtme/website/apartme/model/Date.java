@@ -7,19 +7,62 @@ package aprtme.website.apartme.model;
 public class Date {
 
 
-    public enum MONTH{JAN, FEB, MAR, APR, MAY, JUN, JUL, AUG, SEP, OCT, NOV, DEC}
-    private MONTH month;
+    private int month;
     private int day;
     private int year;
 
+    public Date(){
+        this.month = 0;
+        this.day = 0;
+        this.year = 0;
+    }
 
-    public Date(MONTH month, int day, int year)
+    public Date(int month, int day, int year)
     {
         this.month = month;
         this.day = day;
         this.year = year;
     }
 
+    public int getMonth() {
+        return month;
+    }
+
+    public String toString() {
+
+        switch(month) {
+            case 1:
+                return "Jan " + day + " " + year;
+            case 2:
+                return "Feb " + day + " " + year;
+            case 3:
+                return "Mar " + day + " " + year;
+            case 4:
+                return "Apr " + day + " " + year;
+            case 5:
+                return "May " + day + " " + year;
+            case 6:
+                return "Jun " + day + " " + year;
+            case 7:
+                return "Jul " + day + " " + year;
+            case 8:
+                return "Aug " + day + " " + year;
+            case 9:
+                return "Sep " + day + " " + year;
+            case 10:
+                return "Oct " + day + " " + year;
+            case 11:
+                return "Nov " + day + " " + year;
+            case 12:
+                return "Dec " + day + " " + year;
+
+        }
+        return "invalid";
+    }
+
+    public void setMonth(int month) {
+        this.month = month;
+    }
 
     public int getDay() {
         return day;
