@@ -1,41 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              android:background="#efefef"
+              android:background="?attr/colorPrimaryDark"
     >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="3"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
-        >
+        android:background="#E7E3DB">
 
         <ImageView
-            android:id="@+id/imageView11"
+            android:id="@+id/imageView1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="3dp"
             android:layout_weight="1"
+            android:background="?attr/colorPrimary"
             app:srcCompat="@drawable/ic_action_cancel"/>
 
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="3dp"
             android:layout_weight="1"
+            android:background="?attr/colorPrimary"
             app:srcCompat="@drawable/ic_action_cancel"/>
 
         <ImageView
             android:id="@+id/imageView3"
-            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:background="?attr/colorPrimary"
             app:srcCompat="@drawable/ic_action_cancel"/>
 
 
@@ -45,26 +50,29 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="3"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:orientation="horizontal"
-        >
+        android:background="?attr/colorPrimary">
 
         <ImageView
             android:id="@+id/imageView4"
-            android:layout_weight="2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="3dp"
+            android:layout_weight="2"
+            android:background="?attr/colorPrimary"
             app:srcCompat="@drawable/ic_action_cancel"/>
 
         <Button
             android:id="@+id/imageUploadButton"
-            android:layout_weight="1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="?attr/colorPrimary"
+            android:layout_weight="1"
+            android:background="?attr/colorAccent"
             android:clickable="true"
-            android:layout_margin="3dp"
-            android:text="UPLOAD IMAGES"/>
+            android:text="Upload Images"
+            android:textColor="#F7F6F4"
+            android:textSize="20dp"/>
 
     </LinearLayout>
 
@@ -73,85 +81,118 @@
         android:layout_height="match_parent"
         android:layout_weight="3"
         android:orientation="horizontal"
-        >
+        android:background="?attr/colorPrimaryDark">
 
-        <EditText
-            android:id="@+id/temp1"
+        <TextView
+            android:id="@+id/startDate"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="3dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="3dp"
             android:layout_weight="1"
-            android:hint="StartDate Placeholder"/>
+            android:calendarViewShown="false"
+            android:background="?attr/colorAccent"
+            android:textColorHint="#F7F6F4"
+            android:textColor="#F7F6F4"
+            android:clickable="true"
+            android:hint="\nContract Start Date"
+            android:textAlignment="center"
+            android:textSize="18sp"/>
 
-        <EditText
-            android:id="@+id/temp2"
+        <TextView
+            android:id="@+id/endDate"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="1"
-            android:layout_margin="3dp"
-            android:hint="EndDate Placeholder"/>
+            android:textColor="#F7F6F4"
+            android:background="?attr/colorAccent"
+            android:clickable="true"
+            android:hint="\nContract End Date"
+            android:textAlignment="center"
+            android:textColorHint="#F7F6F4"
+            android:textSize="18sp"/>
 
 
-        </LinearLayout>
+    </LinearLayout>
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:orientation="vertical"
-        >
+        android:background="?attr/colorPrimaryDark">
+
+
+
 
         <EditText
             android:id="@+id/apartmentNameET"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:textColorHint="#AC9D92"
             android:layout_weight="3"
-            android:layout_margin="3dp"
+            android:layout_marginBottom="10dp"
             android:hint="Name of Housing Complex"
-            />
+            android:background="#FCFCFB"/>
 
         <EditText
             android:id="@+id/addressET"
-            android:layout_margin="3dp"
+            android:textColorHint="#AC9D92"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="3"
+            android:layout_marginBottom="10dp"
             android:hint="Address"
-            />
+            android:background="#FCFCFB"/>
 
         <EditText
             android:id="@+id/rentCostET"
-            android:layout_margin="3dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="3"
+            android:textColorHint="#AC9D92"
+            android:layout_marginBottom="10dp"
             android:hint="Monthly Cost"
             android:inputType="number"
-            />
+            android:background="#FCFCFB"/>
 
         <EditText
-            android:inputType="textMultiLine"
-            android:gravity="top|left"
             android:id="@+id/descriptionET"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="3dp"
             android:layout_weight="2"
-            android:hint="Description"
-            />
+            android:background="#FCFCFB"
+            android:textColorHint="#AC9D92"
+            android:gravity="top|left"
+            android:hint="Details"
+            android:inputType="textMultiLine"/>
 
 
     </LinearLayout>
 
     <Button
         android:id="@+id/submitButton"
-        android:layout_weight="3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?attr/colorPrimary"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="3"
+        android:background="?attr/colorAccent"
         android:clickable="true"
-        android:layout_margin="3dp"
-        android:text="SUBMIT"/>
+        android:text="SUBMIT"
+        android:textColor="#F7F6F4"
+        android:textSize="20dp"/>
 
 
 </LinearLayout>
