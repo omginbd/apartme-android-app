@@ -11,51 +11,66 @@
         android:orientation="vertical"
         android:padding="8dp">
 
-        <LinearLayout
-            android:id="@+id/linear_layout_card_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#efefef"
-            android:gravity="center_vertical|center_horizontal"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/text_view_name"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/linear_layout_card_title"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimaryText"
-                android:text="@string/placeholderName" />
+                android:background="#efefef"
+                android:gravity="center_vertical|center_horizontal"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/text_view_address"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:textColor="@color/colorSecondaryText"
-                android:text="@string/placeholderAddress"
-                android:textSize="12sp" />
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/text_view_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryText"
+                    android:text="@string/placeholderName" />
 
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/text_view_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/colorSecondaryText"
+                    android:text="@string/placeholderAddress"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+        <!--<ListView-->
+            <!--android:id="@+id/list_view_images"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="250dp">-->
+        <!--</ListView>-->
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
             android:layout_height="250dp">
-            <ImageView
-                android:id="@+id/image_view_image_1"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                app:srcCompat="@android:color/darker_gray" />
-            <ImageView
-                android:id="@+id/image_view_image_2"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                app:srcCompat="@android:color/darker_gray" />
-            <ImageView
-                android:id="@+id/image_view_image_3"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                app:srcCompat="@android:color/darker_gray" />
-        </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="250dp">
+                <ImageView
+                    android:id="@+id/image_view_image_1"
+                    android:background="@color/black"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp" />
+                <ImageView
+                    android:id="@+id/image_view_image_2"
+                    android:background="@color/colorPrimary"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp" />
+                <ImageView
+                    android:id="@+id/image_view_image_3"
+                    android:background="@color/colorPrimaryLight"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp" />
+                <ImageView
+                    android:id="@+id/image_view_image_4"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp" />
+            </LinearLayout>
+        </HorizontalScrollView>
 
         <LinearLayout
             android:layout_width="match_parent"

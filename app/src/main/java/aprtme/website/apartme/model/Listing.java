@@ -3,6 +3,7 @@ package aprtme.website.apartme.model;
 import android.graphics.Bitmap;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by patri_000 on 10/12/2017.

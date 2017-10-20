@@ -44,15 +44,15 @@ public class MainActivity extends AppCompatActivity {
                 R.string.app_name
         ) {
 
-            public void onDrawerClosed(View view) {
-                super.onDrawerClosed(view);
-                getSupportActionBar().setTitle(R.string.app_name);
-            }
-
-            public void onDrawerOpened(View view) {
-                super.onDrawerOpened(view);
-                getSupportActionBar().setTitle(R.string.app_name);
-            }
+//            public void onDrawerClosed(View view) {
+//                super.onDrawerClosed(view);
+//                getSupportActionBar().setTitle(R.string.app_name);
+//            }
+//
+//            public void onDrawerOpened(View view) {
+//                super.onDrawerOpened(view);
+//                getSupportActionBar().setTitle(R.string.app_name);
+//            }
 
         };
 
@@ -107,13 +107,13 @@ public class MainActivity extends AppCompatActivity {
         public void selectItem(int position) {
             Fragment fragment;
             switch (mNavItems[position]) {
-                case "browse":
+                case "Browse Listings":
                     fragment = new BrowseFragment();
                     break;
-                case "new":
+                case "Create Listing":
                     fragment = new CreateListingFragment();
                     break;
-                case "saved":
+                case "Saved Listings":
                     fragment = new SavedListingsFragment();
                     break;
                 default:

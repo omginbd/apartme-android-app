@@ -149,6 +149,7 @@ public class CreateListingFragment extends Fragment {
                     ListingStore.getListings().add(listing);
 
                     Toast.makeText(getActivity(), "Listing Created", Toast.LENGTH_SHORT).show();
+
                 }
                 else Toast.makeText(getActivity(), "Must fill in all fields", Toast.LENGTH_SHORT).show();
 
