@@ -40,8 +40,8 @@ public class BrowseController {
     }
 
     public void likeListing(Listing curListing) {
+        ListingStore.saveListing(curListing);
         nextListing();
-        // SAVE IT
     }
 
     public void passListing() {

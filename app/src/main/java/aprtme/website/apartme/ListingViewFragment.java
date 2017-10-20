@@ -32,7 +32,7 @@ public class ListingViewFragment extends Fragment {
 
         name = (TextView) v.findViewById(R.id.text_view_name);
         address = (TextView) v.findViewById(R.id.text_view_address);
-        preview = (ImageView) v.findViewById(R.id.image_view_image_preview);
+        preview = (ImageView) v.findViewById(R.id.image_view_image_1);
         description = (TextView) v.findViewById(R.id.text_view_description);
         startDate = (TextView) v.findViewById(R.id.text_view_start_date);
         endDate = (TextView) v.findViewById(R.id.text_view_end_date);
