@@ -35,6 +35,10 @@ public class BrowseController {
         this.curListingIndex = 0;
     }
 
+    public int getCurListingIndex() {
+        return curListingIndex;
+    }
+
     public Listing getCurListing() {
         return ListingStore.getListings(ctx.getContext()).get(curListingIndex);
     }

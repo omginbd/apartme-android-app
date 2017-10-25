@@ -57,7 +57,7 @@ public class SavedListingsAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
             convertView = inflater.inflate(R.layout.list_item, parent, false);
         }
@@ -80,7 +80,7 @@ public class SavedListingsAdapter extends BaseAdapter {
         listItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    viewListing(listing);
+                    viewListing(listing, position);
             }
         });
 
@@ -88,10 +88,11 @@ public class SavedListingsAdapter extends BaseAdapter {
         return convertView;
     }
 
-    private void viewListing(Listing listing) {
+    private void viewListing(Listing listing, int position) {
         Fragment fragment = new ListingViewFragment();
         Bundle args = new Bundle();
-        args.putSerializable("listing", listing);
+        args.putSerializable("listingIndex", position);
+        args.putString("mode", "saved");
         fragment.setArguments(args);
         mActivity.getSupportFragmentManager()
                 .beginTransaction()

@@ -136,9 +136,10 @@ public class CreateListingFragment extends Fragment {
                     listing.setImage3(image3);
                     listing.setImage4(image4);
 
-                    ListingStore.getListings(getContext()).add(listing);
+                    ListingStore.getListings(getContext()).add(0, listing);
 
                     Toast.makeText(getActivity(), "Listing Created", Toast.LENGTH_SHORT).show();
+                    ((MainActivity) getActivity()).getSupportActionBar().setTitle("Browse Listings");
                     getActivity().getSupportFragmentManager()
                             .beginTransaction()
                             .replace(R.id.main_frame, new BrowseFragment())

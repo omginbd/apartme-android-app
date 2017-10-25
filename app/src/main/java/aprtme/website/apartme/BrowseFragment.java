@@ -100,7 +100,8 @@ public class BrowseFragment extends Fragment {
     private void viewListing() {
         Fragment fragment = new ListingViewFragment();
         Bundle args = new Bundle();
-        args.putSerializable("listing", curListing);
+        args.putSerializable("listingIndex", controller.getCurListingIndex());
+        args.putString("mode", "browse");
         fragment.setArguments(args);
         getActivity().getSupportFragmentManager()
                 .beginTransaction()

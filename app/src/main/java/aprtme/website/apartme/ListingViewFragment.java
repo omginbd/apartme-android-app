@@ -1,10 +1,15 @@
 package aprtme.website.apartme;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.HorizontalScrollView;
@@ -15,6 +20,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import aprtme.website.apartme.model.Listing;
+import aprtme.website.apartme.model.ListingStore;
 
 /**
  * Created by michael on 10/12/17.
@@ -33,10 +39,30 @@ public class ListingViewFragment extends Fragment {
     TextView endDate;
     TextView description;
     TextView seller;
+    Listing listing;
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        MenuInflater menuInflater = getActivity().getMenuInflater();
+        menuInflater.inflate(R.menu.actions, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.action_button_call:
+                Intent callIntent = new Intent(Intent.ACTION_CALL);
+                callIntent.setData(Uri.parse("tel:" + listing.getOwner().getPhoneNumber()));
+                startActivity(callIntent);
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        setHasOptionsMenu(true);
         View v = inflater.inflate(R.layout.listing_view, container, false);
 
         name = (TextView) v.findViewById(R.id.text_view_name);
@@ -58,7 +84,11 @@ public class ListingViewFragment extends Fragment {
             }
         });
 
-        Listing listing = (Listing) getArguments().getSerializable("listing");
+        int listingIndex = (int) getArguments().getSerializable("listingIndex");
+
+        if (getArguments().getString("mode").compareTo("saved") == 0) {
+            listing = ListingStore.savedListings.get(listingIndex);
+        } else {listing = ListingStore.getListings(this.getContext()).get(listingIndex);}
 
 
         name.setText(listing.getName());
