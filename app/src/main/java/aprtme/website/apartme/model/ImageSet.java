@@ -11,6 +11,6 @@ import java.util.ArrayList;
 
 public class ImageSet {
 
-    public ArrayList<Bitmap> imageSet;
+    public ArrayList<Bitmap> imageSet = new ArrayList<>();
 
 }

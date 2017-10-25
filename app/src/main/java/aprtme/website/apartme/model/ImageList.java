@@ -15,7 +15,7 @@ import aprtme.website.apartme.R;
 public class ImageList {
 
 
-    public static ArrayList<ImageSet> imageSets;
+    public static ArrayList<ImageSet> imageSets = new ArrayList<>();
 
 
     public ImageList(Context ctx){
