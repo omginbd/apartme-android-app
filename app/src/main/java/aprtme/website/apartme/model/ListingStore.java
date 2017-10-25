@@ -50,10 +50,10 @@ public class ListingStore {
         for (int i = 0; i < 100; i++) {
             int rent = 200 + (int) (Math.random() * 300) % 400;
             Listing listing = new Listing(new User(lorem.getName(), lorem.getPhone()), lorem.getTitle(2), addresses[i % 10], lorem.getWords(25, 50), startDates[i % 10], endDates[i % 10], rent);
-            listing.setImage1(images.imageSets.get(i % 9).imageSet.get(1));
-            listing.setImage2(images.imageSets.get(i % 9).imageSet.get(2));
-            listing.setImage3(images.imageSets.get(i % 9).imageSet.get(3));
-            listing.setImage4(images.imageSets.get(i % 9).imageSet.get(4));
+            listing.setImage1(images.imageSets.get(i % 9).imageSet.get(0));
+            listing.setImage2(images.imageSets.get(i % 9).imageSet.get(1));
+            listing.setImage3(images.imageSets.get(i % 9).imageSet.get(2));
+            listing.setImage4(images.imageSets.get(i % 9).imageSet.get(3));
             listings.add(listing);
         }
     }
