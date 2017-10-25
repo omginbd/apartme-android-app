@@ -36,7 +36,7 @@ public class BrowseController {
     }
 
     public Listing getCurListing() {
-        return ListingStore.getListings().get(curListingIndex);
+        return ListingStore.getListings(ctx.getContext()).get(curListingIndex);
     }
 
     public void likeListing(Listing curListing) {
@@ -49,8 +49,8 @@ public class BrowseController {
     }
 
     private void nextListing() {
-        if (curListingIndex++ == ListingStore.getListings().size() -1) curListingIndex = 0;
-        ctx.setListing(ListingStore.getListings().get(curListingIndex));
+        if (curListingIndex++ == ListingStore.getListings(ctx.getContext()).size() -1) curListingIndex = 0;
+        ctx.setListing(ListingStore.getListings(ctx.getContext()).get(curListingIndex));
     }
 
 }

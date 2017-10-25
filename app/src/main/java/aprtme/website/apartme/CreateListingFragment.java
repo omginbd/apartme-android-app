@@ -136,7 +136,7 @@ public class CreateListingFragment extends Fragment {
                     listing.setImage3(image3);
                     listing.setImage4(image4);
 
-                    ListingStore.getListings().add(listing);
+                    ListingStore.getListings(getContext()).add(listing);
 
                     Toast.makeText(getActivity(), "Listing Created", Toast.LENGTH_SHORT).show();
                     getActivity().getSupportFragmentManager()
