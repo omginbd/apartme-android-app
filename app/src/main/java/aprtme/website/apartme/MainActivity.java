@@ -125,6 +125,7 @@ public class MainActivity extends AppCompatActivity {
             fragment.setArguments(args);
 
             FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
             fragmentManager.beginTransaction()
                     .replace(R.id.main_frame, fragment)
                     .commit();
