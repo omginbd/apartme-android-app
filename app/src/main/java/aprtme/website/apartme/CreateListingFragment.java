@@ -3,8 +3,11 @@ package aprtme.website.apartme;
 import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -24,7 +27,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.Proxy;
+import java.net.URL;
 import java.util.Calendar;
 
 import aprtme.website.apartme.model.Date;
@@ -85,7 +92,7 @@ public class CreateListingFragment extends Fragment {
 
         startDateDisplay.setOnClickListener(new View.OnClickListener() {
             @Override
-                public void onClick(View v) {
+            public void onClick(View v) {
 
                 DialogFragment newFragment = new SelectStartDateFragment();
                 newFragment.show(getFragmentManager(), "DatePicker");
@@ -136,7 +143,7 @@ public class CreateListingFragment extends Fragment {
                     listing.setImage3(image3);
                     listing.setImage4(image4);
 
-                    ListingStore.getListings(getContext()).add(0, listing);
+                    ListingStore.getListings(getContext()).add(listing);
 
                     Toast.makeText(getActivity(), "Listing Created", Toast.LENGTH_SHORT).show();
                     ((MainActivity) getActivity()).getSupportActionBar().setTitle("Browse Listings");
@@ -164,7 +171,7 @@ public class CreateListingFragment extends Fragment {
                 case REQUEST_CODE:
                     if (resultCode == Activity.RESULT_OK) {
                         Uri imageUri = data.getData();
-                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), imageUri);
+                        Bitmap bitmap = getScaledBitmapFromUrl(imageUri, 250, 250, getContext());
 
                         if(image1 == null)
                         {
@@ -281,6 +288,38 @@ public class CreateListingFragment extends Fragment {
             endDateDisplay.setText("\n" + endDate.toString());
         }
 
+    }
+
+    private static Bitmap getScaledBitmapFromUrl(Uri uri, int requiredWidth, int requiredHeight, Context context) throws IOException {
+        InputStream is = context.getContentResolver().openInputStream(uri);
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeStream(is, null, options);
+        options.inSampleSize = calculateInSampleSize(options, requiredWidth, requiredHeight);
+        options.inJustDecodeBounds = false;
+        //don't use same inputstream object as in decodestream above. It will not work because
+        //decode stream edit input stream. So if you create
+        //InputStream is =url.openConnection().getInputStream(); and you use this in  decodeStream
+        //above and bellow it will not work!
+        is = context.getContentResolver().openInputStream(uri);
+        Bitmap bm = BitmapFactory.decodeStream(is, null, options);
+        return bm;
+    }
+
+    private static int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight) {
+        // Raw height and width of image
+        final int height = options.outHeight;
+        final int width = options.outWidth;
+        int inSampleSize = 1;
+
+        if (height > reqHeight || width > reqWidth) {
+            if (width > height) {
+                inSampleSize = Math.round((float) height / (float) reqHeight);
+            } else {
+                inSampleSize = Math.round((float) width / (float) reqWidth);
+            }
+        }
+        return inSampleSize;
     }
 
 }
